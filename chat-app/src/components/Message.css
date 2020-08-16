@@ -11,9 +11,10 @@
 }
 
 .message-usercard {
-background-color: #E4FEC7 !important;
+background-color: #E1FDC6 !important;
+font-style: italic;
 }
 
 .message-guestcard {
-  background-color: #FFF !important;
+  background-color: #fff !important;
 }

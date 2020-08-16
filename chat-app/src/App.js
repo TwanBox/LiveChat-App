@@ -1,19 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Button, FormControl, InputLabel, Input } from '@material-ui/core';
+import { Button, IconButton, FormControl, InputLabel, Input, AppBar, Avatar } from '@material-ui/core';
 import Message from './components/Message';
+import db from './firebase';
+import firebase from 'firebase';
+import  FlipMove from 'react-flip-move';
+import SendIcon from '@material-ui/icons/Send';
 
 function App() {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([{username: 'piet', text: 'hallo'}]);
+  const [messages, setMessages] = useState([{username: 'piet', message: 'hallo'}]);
   const [username, setUsername] = useState('');
 
   const sendMessage = event => {
-    if (input) {
-      setMessages([...messages, {username: username, text: input}]);
+
+    db.collection( 'messages').add({
+      message: input,
+      username: username,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
       setInput('');
-    }
   }
+
+  useEffect(() => {
+    db.collection('messages')
+    .orderBy('timestamp', 'desc')
+    .onSnapshot(snapshot => {
+      setMessages(snapshot.docs.map(doc => ({id: doc.id, message: doc.data()}))) 
+    })
+  }, [])
 
   useEffect(() => {
     setUsername(prompt('Please enter your name'));
@@ -22,23 +37,38 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Hi {username}!</h2>
+      <AppBar style={{padding: "10px", backgroundColor: '#037969'}} position="static">
+        <Avatar style={{color: '#037969', backgroundColor: 'white'}}>{username.substring(0, 1).toUpperCase()}</Avatar>
+      </AppBar>
 
-    <FormControl>
-      <InputLabel>Type something...</InputLabel>
-      <Input value={input}  onChange={event => setInput(event.target.value)}/>
-      <Button disabled={!input} variant="contained" color="primary" onClick={() => sendMessage()}>SEND</Button>
-    </FormControl>
+      <form className="app-form" onSubmit={e => { e.preventDefault(); }}>
 
-    {
-      messages.map(messageItem => (
-        <Message 
-        username={username} 
-        message={messageItem} />
-      ))
-    }
-    </div>
+        <FormControl>
+          <InputLabel>Type a message...</InputLabel>
+          <Input value={input}  onChange={event => setInput(event.target.value)}/>
+
+          <IconButton disabled={!input} variant="contained" color="primary" onClick={() => sendMessage()}>
+            <SendIcon/>
+          </IconButton>
+        </FormControl>
+      </form>
+
+
+    <FlipMove>
+      {
+        messages.map(({id, message}) => (
+          <Message
+          key={id}
+          username={username} 
+          message={message}
+          />
+        ))
+      }
+    </FlipMove>
+
+  </div>
   );
 }
+
 
 export default App;
