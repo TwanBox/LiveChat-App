@@ -38,16 +38,14 @@ function App() {
   return (
     <div className="App">
       <AppBar style={{padding: "10px", backgroundColor: '#037969'}} position="static">
-        <Avatar style={{color: '#037969', backgroundColor: 'white'}}>{username.substring(0, 1).toUpperCase()}</Avatar>
+        <Avatar style={{color: '#037969', backgroundColor: 'white'}}>{username.substring(0, 1).toUpperCase() || '?'}</Avatar>
       </AppBar>
 
       <form className="app-form" onSubmit={e => { e.preventDefault(); }}>
 
-        <FormControl>
-          <InputLabel>Type a message...</InputLabel>
-          <Input value={input}  onChange={event => setInput(event.target.value)}/>
-
-          <IconButton disabled={!input} variant="contained" color="primary" onClick={() => sendMessage()}>
+        <FormControl className="app-formControl">
+          <Input className="app-input" placeholder="Type a message..." value={input}  onChange={event => setInput(event.target.value)}/>
+          <IconButton  className="app-iconButton" disabled={!input} variant="contained" color="primary" onClick={() => sendMessage()}>
             <SendIcon/>
           </IconButton>
         </FormControl>
