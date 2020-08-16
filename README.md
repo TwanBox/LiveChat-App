@@ -1,7 +1,7 @@
 # Twan's LiveChat-App
 See [Live Site](https://sapient-depot-285005.web.app/)
 
-A cool chat app like WhatsApp
+A cool chat app like WhatsApp but without a phone number.
 
 # Tech stack
   - React 
@@ -16,4 +16,16 @@ A cool chat app like WhatsApp
   - user authentication
   - profile pictures
   - Nice popup on component mount instead of a prompt
+
+
+
+> This was my first time using firebase.
+> I chose firebase to listen for new messages
+> and display them from the database so that i 
+> can implement things like user authentication.
+> I could make a real time connection using websockets
+> but this approach does not support the functionality i wanted.
+> Right now this is mocked with a simple prompt on component mount in <App />.
+> When a user types in the name he previously used he is "logged in"
+and can see his/her own messages send in the past in the color green.
 
