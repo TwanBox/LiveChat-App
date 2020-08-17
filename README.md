@@ -16,6 +16,7 @@ A cool chat app like WhatsApp but without a phone number.
   - user authentication
   - profile pictures
   - Nice popup on component mount instead of a prompt
+  - Let users upload their own background images
 
 
 
