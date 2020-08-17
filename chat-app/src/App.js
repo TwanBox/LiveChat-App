@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Button, IconButton, FormControl, InputLabel, Input, AppBar, Avatar } from '@material-ui/core';
+import { IconButton, FormControl, Input, AppBar, Avatar } from '@material-ui/core';
 import Message from './components/Message';
 import db from './firebase';
 import firebase from 'firebase';

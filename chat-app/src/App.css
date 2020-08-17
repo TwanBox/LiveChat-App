@@ -1,5 +1,8 @@
 body {
-  background-color: #D8D1C7;
+  background-color: #f0e8de;
+  background-image: url(official-whatsapp-background-image.jpg);
+  background-repeat: repeat;
+  background-size: 20%;
 }
 
 .App {
