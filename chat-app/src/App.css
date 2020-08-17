@@ -14,6 +14,7 @@ body {
 
 .App {
   text-align: center;
+  margin-top: 70px;
 }
 
 .app-form {
@@ -23,7 +24,7 @@ body {
   z-index: 1;
   background-color: #e9e9eb;
   width: 80%;
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 .app-formControl {
