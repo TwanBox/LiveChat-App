@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar style={{padding: "10px", backgroundColor: '#037969'}} position="static">
+      <AppBar style={{backgroundColor: '#037969', position: 'fixed', padding: 10}}>
         <Avatar style={{color: '#037969', backgroundColor: 'white'}}>{username.substring(0, 1).toUpperCase() || '?'}</Avatar>
       </AppBar>
 

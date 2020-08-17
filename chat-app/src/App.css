@@ -3,6 +3,7 @@ body {
   background-image: url(official-whatsapp-background-image.jpg);
   background-repeat: repeat;
   background-size: 20%;
+  background-attachment: fixed;
 }
 
 .App {
