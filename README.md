@@ -1,6 +1,6 @@
 # Twan's LiveChat-App
 
-![ScreenShot](https://github.com/TwanBox/LiveChat-App/blob/master/chat-app/public/Screenshot%202020-08-18%20at%2018.41.40.png | width=100)
+![ScreenShot](https://github.com/TwanBox/LiveChat-App/blob/master/chat-app/public/Screenshot%202020-08-18%20at%2018.41.40.png)
 
 See [Live Site](https://sapient-depot-285005.web.app/)
 
