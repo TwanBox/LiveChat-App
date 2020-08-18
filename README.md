@@ -1,6 +1,6 @@
 # Twan's LiveChat-App
 
-![](./public/Screenshot 2020-08-18 at 18.41.40.png)
+![](chat-app/public/Screenshot 2020-08-18 at 18.41.40.png)
 See [Live Site](https://sapient-depot-285005.web.app/)
 
 A cool chat app like WhatsApp but without a phone number.
